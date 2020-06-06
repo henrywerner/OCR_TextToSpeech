@@ -32,21 +32,21 @@ class Monoculus:
         print('{+} Screen Size: ', end="")
         print(pyag.size())
         
-        #TODO: Make this actually work
+        print('\n{+} Press CTRL to set mouse position as the TOP LEFT corner of the bounding box...')
         keyboard.wait('ctrl')
         print(pyag.position())
         mouseX, mouseY = pyag.position()
         self.x = mouseX
         self.y = mouseY
-        print('x = ' + str(self.x))
-        print('y = ' + str(self.y))
 
+        print('\n{+} Press CTRL to set mouse position as the BOTTOM RIGHT corner of the bounding box...')
         keyboard.wait('ctrl')
+        print(pyag.position())
         mouseX, mouseY = pyag.position()
         self.offx = mouseX
         self.offy = mouseY
-        print('offx = ' + str(self.offx))
-        print('offy = ' + str(self.offy))
+
+        print('\n')
 
 
     def screenToString(self):
@@ -55,8 +55,8 @@ class Monoculus:
         # Setting up cv2 window for image preview
         cv2.namedWindow('image', cv2.WINDOW_AUTOSIZE) # _NORMAL or _AUTOSIZE
 
-        ocrText = "a"
-        ocrTextPrev = "a"
+        ocrText = "placeholder string"
+        ocrTextPrev = "placeholder string"
 
         self.engine.say("Starting text to speech.")
 
